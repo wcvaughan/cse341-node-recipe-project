@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingredients</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Ingredients</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="/auth/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="ingredient-list">
+            <h2>Your Ingredients</h2>
+            <!-- Ingredients will be dynamically listed here -->
+        </section>
+
+        <section id="add-ingredient">
+            <h2>Add a New Ingredient</h2>
+            <form id="ingredient-form">
+                <label for="ingredient-name">Ingredient Name:</label>
+                <input type="text" id="ingredient-name" required>
+
+                <label for="category">Category:</label>
+                <input type="text" id="category" required>
+
+                <label for="measurement-unit">Measurement Unit:</label>
+                <input type="text" id="measurement-unit" required>
+
+                <label for="calories">Calories per Unit:</label>
+                <input type="number" id="calories" required>
+
+                <label for="notes">Notes:</label>
+                <textarea id="notes" required></textarea>
+
+                <button type="submit">Add Ingredient</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Digital Recipe Book &copy; 2025</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+// LOCALHOST RECIPES
+### Get all Recipes
+GET http://localhost:8080/recipes
+
+### Get recipe by name
+GET http://localhost:8080/recipes/
+
+### Create recipe
+POST https://localhost:8080/recipes HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Spaghetti Carbonara",
+    "description": "A classic Italian pasta dish with eggs, cheese, pancetta, and pepper.",
+    "ingredients": ["662345abcd0001", "662345abcd0002", "662345abcd0003", "662345abcd0004"],
+    "steps": [
+    "Boil pasta until al dente.",
+    "Cook pancetta until crispy.",
+    "Mix eggs and cheese, then combine with pasta and pancetta.",
+    "Season with black pepper and serve."
+    ],
+    "prep_time": 10,
+    "cooking_time": 20,
+    "difficulty": "Medium"
+}
+### Update recipe
+PUT http://localhost:8080/recipes/Chicken Stir-Fry HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Spaghetti Carbonara",
+    "description": "A classic Italian pasta dish with eggs, cheese, pancetta, and pepper.",
+    "ingredients": ["662345abcd0001", "662345abcd0002", "662345abcd0003", "662345abcd0004"],
+    "steps": [
+    "Boil pasta until al dente.",
+    "Cook pancetta until crispy.",
+    "Mix eggs and cheese, then combine with pasta and pancetta.",
+    "Season with black pepper and serve."
+    ],
+    "prep_time": 10,
+    "cooking_time": 20,
+    "difficulty": "Medium"
+}
+### Delete Recipe
+DELETE http://localhost:8080/recipes/Spaghetti Carbonara
+
+// LOCALHOST INGREDIENTS
+### Get all ingredients
+GET http://localhost:8080/ingredients
+
+### Get ingredient by name
+GET http://localhost:8080/ingredients/
+
+### Create ingredient
+POST http://localhost:8080/ingredients HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Spaghetti",
+    "category": "Pasta",
+    "measurement_unit": "grams",
+    "calories_per_unit": 150,
+    "notes": "Use whole wheat for a healthier option."
+}
+### Update ingredient
+PUT http://localhost:8080/ingredients/ HTTP/1.1
+content-type: application/json
+
+  {
+    "_id": "662345abcd0001",
+    "name": "Spaghetti",
+    "category": "Pasta",
+    "measurement_unit": "grams",
+    "calories_per_unit": 150,
+    "notes": "Use whole wheat for a healthier option."
+  }
+
+
+### Delete ingredient
+DELETE http://localhost:8080/recipes/Spaghetti

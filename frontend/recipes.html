@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Recipes</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="ingredients.html">Ingredients</a></li>
+                <li><a href="/auth/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="recipe-list">
+            <h2>Your Recipes</h2>
+            <!-- Recipes will be dynamically listed here -->
+        </section>
+
+        <section id="add-recipe">
+            <h2>Add a New Recipe</h2>
+            <form id="recipe-form">
+                <label for="name">Recipe Name:</label>
+                <input type="text" id="name" required>
+
+                <label for="description">Description:</label>
+                <textarea id="description" required></textarea>
+
+                <label for="steps">Steps:</label>
+                <textarea id="steps" required></textarea>
+
+                <button type="submit">Add Recipe</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Digital Recipe Book &copy; 2025</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
