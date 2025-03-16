@@ -15,6 +15,41 @@ async function fetchRecipes() {
     });
 }
 
+// Function to fetch a recipe by name
+async function fetchSingleRecipe(recipeName) {
+    try {
+        const encodedName = encodeURIComponent(recipeName);
+        const response = await fetch(`${apiUrl}/recipes/${encodedName}`);
+
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status} - ${response.statusText}`);
+        }
+
+        const recipe = await response.json();
+        displayRecipe(recipe); // Call function to update the UI
+    } catch (error) {
+        console.error("Failed to fetch recipe:", error);
+        document.getElementById("recipeDisplay").innerHTML = "<p>Recipe not found</p>";
+    }
+}
+
+function displayRecipe(recipe) {
+    const recipeDisplay = document.getElementById("recipeDisplay");
+    recipeDisplay.innerHTML = `
+        <h2>${recipe.name}</h2>
+        <p><strong>Description:</strong> ${recipe.description}</p>
+        <h3>Ingredients</h3>
+        <ul>
+            ${recipe.ingredients.map(ing => `<li>${ing.quantity} ${ing.unit} - ${ing.name}</li>`).join("")}
+        </ul>
+        <h3>Steps</h3>
+        <ol>
+            ${recipe.steps.map(step => `<li>${step}</li>`).join("")}
+        </ol>
+    `;
+}
+
+
 // Function to add a new recipe
 async function addRecipe(event) {
     event.preventDefault();
@@ -51,6 +86,24 @@ async function fetchIngredients() {
         ingredientItem.innerHTML = `<h3>${ingredient.name}</h3><p>Category: ${ingredient.category}</p><p>Calories: ${ingredient.calories_per_unit}</p>`;
         ingredientList.appendChild(ingredientItem);
     });
+}
+
+// Function to fetch a ingredient by name
+async function fetchSingleIngredient(ingredientName) {
+    try {
+        const encodedName = encodeURIComponent(ingredientName); // Encode the name for URL safety
+        const response = await fetch(`${apiUrl}/ingredients/${encodedName}`);
+
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status} - ${response.statusText}`);
+        }
+
+        const ingredient = await response.json();
+        console.log(ingredient); // Display ingredient on page
+        return ingredient;
+    } catch (error) {
+        console.error('Failed to fetch ingredient:', error);
+    }
 }
 
 // Function to add a new ingredient
