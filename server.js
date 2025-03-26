@@ -1,12 +1,9 @@
 const express = require('express');
 const session = require('express-session');
 const crypto = require('crypto');
-const passport = require('./config/passport-config');
 require('dotenv').config();
 const bodyParser = require('body-parser');
-const MongoClient = require('mongodb').MongoClient;
 const mongodb = require('./db/connect');
-const authRoutes = require('./routes/auth-routes');
 const ingredientRoutes = require('./routes/ingredient-routes');
 const recipeRoutes = require('./routes/recipe-routes');
 const userRoutes = require('./routes/user-routes');
